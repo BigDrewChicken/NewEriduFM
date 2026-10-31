@@ -1,0 +1,30 @@
+# Secrets: Atlas URI and passwords live here. Commit .env.example instead.
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and local dumps
+*.log
+*.bson
+dump/
+
+# Docker / local data (MongoDB and Kafka data live in Docker volumes, not here)
+mongo_data/
+kafka_data/

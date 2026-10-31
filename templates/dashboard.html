@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEW ERIDU FM - Pull Radio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--panel:#141416;--ink:#f1eedd;--dim:#8d8a7c;--y:#f6e800;--g:#b4ff00;--m:#ff2d8f;--c:#00e5ff;
+--disp:'Bungee','Impact',sans-serif;--mono:'Space Mono',Consolas,monospace;--lcd:'VT323',Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:13px;
+background-image:radial-gradient(rgba(246,232,0,.07) 1.2px,transparent 1.4px);background-size:14px 14px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;
+background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+header{display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:3px solid var(--y);background:#000;flex-wrap:wrap}
+h1{font-family:var(--disp);font-size:26px;margin:0;color:var(--y);letter-spacing:1px;text-shadow:3px 3px 0 var(--m)}
+.sub{color:var(--dim);font-size:12px}.live{margin-left:auto;font-family:var(--disp);color:#000;background:var(--g);padding:4px 10px;transform:skew(-10deg)}
+.live.off{background:var(--m)}
+main{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;padding:16px 22px 40px}
+.card{background:var(--panel);border:2px solid #2b2b2f;position:relative;padding:14px 16px 16px;box-shadow:6px 6px 0 #000}
+.card h2{font-family:var(--disp);font-size:14px;margin:0 0 10px;color:var(--y);letter-spacing:1px}
+.card h2::before{content:"\25B6 ";color:var(--m)}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+@media(max-width:1000px){main>*{grid-column:span 12!important}}
+/* cassette */
+.deck{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.tape{width:300px;height:180px;background:linear-gradient(#2a2a2e,#1b1b1e);border:3px solid #000;border-radius:12px;position:relative;box-shadow:inset 0 0 0 3px #3a3a40;flex:0 0 auto;max-width:100%}
+.label{position:absolute;left:18px;right:18px;top:12px;height:62px;background:var(--y);color:#000;padding:6px 10px;border-radius:4px;transform:rotate(-1deg)}
+.label b{font-family:var(--disp);font-size:15px;display:block}.label span{font-size:10px;font-weight:700}
+.label i{position:absolute;right:8px;bottom:5px;font-family:var(--disp);font-size:20px;color:var(--m);font-style:normal}
+.window{position:absolute;left:44px;right:44px;top:88px;height:58px;background:#050505;border:2px solid #444;border-radius:30px}
+.reel{position:absolute;top:5px;width:44px;height:44px;border-radius:50%;background:conic-gradient(#ddd 0 12%,#222 12% 25%,#ddd 25% 37%,#222 37% 50%,#ddd 50% 62%,#222 62% 75%,#ddd 75% 87%,#222 87%);
+border:5px solid #888;animation:spin var(--spin,3s) linear infinite}
+.reel.l{left:22px}.reel.r{right:22px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.screws{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:#555;letter-spacing:90px;font-size:10px}
+.lcd{font-family:var(--lcd);color:var(--g);background:#050805;border:2px solid #222;padding:4px 12px;text-shadow:0 0 8px var(--g)}
+.lcd{overflow:hidden;white-space:nowrap}.lcd.big{font-size:clamp(34px,3.6vw,54px);line-height:1}.lcd.mid{font-size:clamp(22px,2.2vw,30px);line-height:1.1}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;flex:1 1 300px;min-width:0}.kpi{min-width:0}
+.kpi small{display:block;color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.card{min-width:0}.chart{position:relative;width:100%;min-width:0}canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.row{display:grid;grid-template-columns:26px 1fr auto;gap:8px;align-items:center;margin:5px 0}
+.row .n{font-family:var(--disp);color:var(--m);font-size:15px}
+.bar{height:14px;background:#222;position:relative;overflow:hidden}.bar>div{height:100%;background:var(--y);transition:width .6s}
+.bar.g>div{background:var(--g)}.bar.m>div{background:var(--m)}.bar.c>div{background:var(--c)}
+.nm{display:flex;justify-content:space-between;gap:6px;font-size:12px}.nm em{font-style:normal;color:var(--dim)}
+.val{font-family:var(--lcd);font-size:20px;color:var(--g);min-width:70px;text-align:right}
+.track{padding:7px 0;border-bottom:1px dashed #333;display:flex;gap:10px;align-items:baseline}
+.track b{color:var(--y);font-family:var(--disp);font-size:12px}.tag{font-size:10px;background:var(--m);color:#000;padding:1px 6px;font-weight:700}
+.ticker{overflow:hidden;white-space:nowrap;background:var(--y);color:#000;font-family:var(--disp);font-size:12px;padding:5px 0}
+.ticker div{display:inline-block;padding-left:100%;animation:mq 30s linear infinite}@keyframes mq{to{transform:translateX(-100%)}}
+.legend{display:flex;gap:14px;margin-top:8px;font-size:12px}.legend i{display:inline-block;width:10px;height:10px;margin-right:5px}
+.vtag{position:absolute;top:-10px;right:12px;background:var(--c);color:#000;font-family:var(--disp);font-size:11px;padding:2px 8px;transform:rotate(2deg)}
+</style></head><body>
+<div class="ticker"><div id="mq">NEW ERIDU FM 162.5 &#9679; PULL RADIO &#9679; WAITING FOR SIGNAL...</div></div>
+<header><h1>NEW ERIDU FM</h1><div class="sub">PULL RADIO &middot; live signal-search telemetry simulator &middot;</div>
+<div class="live off" id="live">NO SIGNAL</div></header>
+<main>
+ <section class="card c7"><span class="vtag">VELOCITY</span><h2>NOW PLAYING &mdash; SIDE A</h2>
+  <div class="deck">
+   <div class="tape"><div class="label"><b>ZZZ MIXTAPE VOL.33</b><span>PULLS &amp; TOP-UPS &middot; 90 MIN</span><i id="epsLabel">0/s</i></div>
+    <div class="window"><div class="reel l" id="rl"></div><div class="reel r" id="rr"></div></div><div class="screws">&#9679;&#9679;</div></div>
+   <div class="kpis">
+    <div class="kpi"><small>events / sec</small><div class="lcd big" id="eps">0</div></div>
+    <div class="kpi"><small>tape counter</small><div class="lcd mid" id="total">0</div></div>
+    <div class="kpi"><small>uptime</small><div class="lcd mid" id="up">0:00</div></div>
+    <div class="kpi"><small>consumer lag</small><div class="lcd mid" id="lag">0</div></div>
+    <div class="kpi"><small>S-rank rate %</small><div class="lcd mid" id="srate">0</div></div>
+    <div class="kpi"><small>revenue (PHP)</small><div class="lcd mid" id="rev">0</div></div>
+   </div></div></section>
+ <section class="card c5"><span class="vtag">VOLUME</span><h2>VOLUME KNOB</h2>
+  <div class="kpis" style="grid-template-columns:1fr 1fr">
+   <div class="kpi"><small>data processed (MB)</small><div class="lcd mid" id="mb">0</div></div>
+   <div class="kpi"><small>pull events</small><div class="lcd mid" id="pulls">0</div></div></div>
+  <div class="chart" style="height:150px;margin-top:8px"><canvas id="dnt"></canvas></div>
+  <div class="legend"><span><i style="background:var(--y)"></i>S-RANK</span><span><i style="background:var(--m)"></i>A-RANK</span></div></section>
+ <section class="card c8"><h2>SIGNAL STRENGTH &mdash; EVENTS / SEC (LAST 2 MIN)</h2><div class="chart" style="height:190px"><canvas id="eps_c"></canvas></div></section>
+ <section class="card c4"><span class="vtag">VARIETY</span><h2>STATIONS (BANNERS)</h2><div id="banners"></div>
+  <h2 style="margin-top:14px">ITEM TYPES</h2><div id="types"></div></section>
+ <section class="card c5"><h2>BILLBOARD TOP 10 &mdash; BIGGEST SPENDERS</h2><div id="spenders"></div></section>
+ <section class="card c4"><h2>HIT SINGLES &mdash; MOST PULLED S-RANKS</h2><div id="items"></div></section>
+ <section class="card c3"><h2>TOP-UP PACK SALES</h2><div id="packs"></div></section>
+ <section class="card c6"><h2>S-RANK HITS BY PITY (PULLS SINCE LAST S)</h2><div class="chart" style="height:170px"><canvas id="pity"></canvas></div></section>
+ <section class="card c6"><h2>TRACKLIST &mdash; LATEST S-RANK DROPS</h2><div id="recent"></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id), fmt=n=>(n||0).toLocaleString('en-US');
+const Y=getComputedStyle(document.documentElement).getPropertyValue('--y').trim(),M='#ff2d8f',G='#b4ff00';
+function rows(el,pairs,cls,money){const mx=Math.max(1,...pairs.map(p=>p[1]));
+ $(el).innerHTML=pairs.map((p,i)=>`<div class="row"><span class="n">${i+1}</span><div><div class="nm"><span>${p[0]}</span></div>
+ <div class="bar ${cls}"><div style="width:${100*p[1]/mx}%"></div></div></div><span class="val">${money?'\u20B1':''}${fmt(p[1])}</span></div>`).join('')||'<em style="color:#666">no data yet</em>'}
+function line(cv,data){const c=$(cv),w=c.width=c.clientWidth*2,h=c.height=c.clientHeight*2,x=c.getContext('2d');x.clearRect(0,0,w,h);
+ const mx=Math.max(100,...data)*1.1;x.strokeStyle='#2b2b2f';x.lineWidth=2;x.fillStyle='#8d8a7c';x.font='20px Space Mono';
+ for(let i=0;i<=4;i++){const y=h-24-(h-40)*i/4;x.beginPath();x.moveTo(60,y);x.lineTo(w,y);x.stroke();x.fillText(fmt(Math.round(mx*i/4)),0,y+6)}
+ x.beginPath();data.forEach((v,i)=>{const px=60+(w-60)*i/(data.length-1),py=h-24-(h-40)*v/mx;i?x.lineTo(px,py):x.moveTo(px,py)});
+ x.strokeStyle=Y;x.lineWidth=4;x.shadowColor=Y;x.shadowBlur=14;x.stroke();x.shadowBlur=0;x.lineTo(w,h-24);x.lineTo(60,h-24);x.fillStyle='rgba(246,232,0,.12)';x.fill()}
+function bars(cv,pairs){const c=$(cv),w=c.width=c.clientWidth*2,h=c.height=c.clientHeight*2,x=c.getContext('2d');x.clearRect(0,0,w,h);
+ const mx=Math.max(1,...pairs.map(p=>p[1])),bw=(w-20)/pairs.length;x.font='20px Space Mono';
+ pairs.forEach((p,i)=>{const bh=(h-50)*p[1]/mx;x.fillStyle=i>=8?M:G;x.fillRect(10+i*bw+6,h-30-bh,bw-12,bh);x.fillStyle='#8d8a7c';
+ x.fillText(i==9?'90+':p[0],10+i*bw+10,h-8);if(p[1]){x.fillStyle='#f1eedd';x.fillText(fmt(p[1]),10+i*bw+10,h-36-bh)}})}
+function donut(s,a){const c=$('dnt'),w=c.width=c.clientWidth*2,h=c.height=c.clientHeight*2,x=c.getContext('2d'),t=Math.max(1,s+a),r=Math.min(100,h/2-30),cx=w/2,cy=h/2;
+ x.clearRect(0,0,w,h);[[s,Y],[a,M]].reduce((st,[v,col])=>{const e=st+2*Math.PI*v/t;x.beginPath();x.arc(cx,cy,r,st,e);x.lineWidth=46;x.strokeStyle=col;x.stroke();return e},-Math.PI/2);
+ x.fillStyle='#f1eedd';x.font='34px VT323';x.textAlign='center';x.fillText(fmt(s)+' S / '+fmt(a)+' A',cx,cy+10);x.textAlign='left'}
+const es=new EventSource('/stream');
+es.onerror=()=>{$('live').textContent='NO SIGNAL';$('live').className='live off'};
+es.onmessage=ev=>{const d=JSON.parse(ev.data);if(!d.total&&d.total!==0)return;
+ $('live').textContent=d.eps>0?'ON AIR':'STANDBY';$('live').className='live'+(d.eps>0?'':' off');
+ $('eps').textContent=fmt(d.eps);$('epsLabel').textContent=fmt(d.eps)+'/s';$('total').textContent=fmt(d.total);$('lag').textContent=fmt(d.lag);
+ $('srate').textContent=d.s_rate;$('rev').textContent=fmt(d.revenue);$('mb').textContent=fmt(d.mb);$('pulls').textContent=fmt(d.pulls);
+ $('up').textContent=Math.floor(d.uptime/60)+':'+String(d.uptime%60).padStart(2,'0');
+ const sp=Math.max(.25,4-d.eps/2500);$('rl').style.setProperty('--spin',sp+'s');$('rr').style.setProperty('--spin',sp+'s');
+ line('eps_c',d.eps_hist);donut(d.ranks.S||0,d.ranks.A||0);bars('pity',d.pity);
+ rows('banners',Object.entries(d.banners),'c');rows('types',Object.entries(d.types),'g');
+ rows('spenders',d.top_spenders,'m',true);rows('items',d.top_s_items,'');rows('packs',d.packs,'c');
+ $('recent').innerHTML=d.recent_s.map(r=>`<div class="track"><b>${r.item}</b><span>${r.user}</span><span style="color:#8d8a7c">${r.banner} &middot; pity ${r.pity}</span>${r.featured?'<span class="tag">FEATURED</span>':''}</div>`).join('');
+ $('mq').textContent=`NEW ERIDU FM 98.7 \u25CF ${fmt(d.eps)} EVENTS/SEC \u25CF ${fmt(d.total)} TOTAL \u25CF TOP SPENDER: ${(d.top_spenders[0]||['--'])[0]} \u25CF LATEST DROP: ${(d.recent_s[0]||{item:'--'}).item} \u25CF `.repeat(3)};
+</script></body></html>

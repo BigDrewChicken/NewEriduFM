@@ -1,0 +1,5 @@
+confluent-kafka>=2.5
+pymongo[srv]>=4.8
+python-dotenv>=1.0
+flask>=3.0
+certifi>=2024.7.4

@@ -1,0 +1,69 @@
+item_id,item_name,item_type,rank,attribute,specialty,banners
+ZZZ-0001,Nekomata,Agent,S,Physical,Attack,Stable Channel|Exclusive Channel
+ZZZ-0002,Soldier 11,Agent,S,Fire,Attack,Stable Channel|Exclusive Channel
+ZZZ-0003,Koleda,Agent,S,Fire,Stun,Stable Channel|Exclusive Channel
+ZZZ-0004,Lycaon,Agent,S,Ice,Stun,Stable Channel|Exclusive Channel
+ZZZ-0005,Grace,Agent,S,Electric,Anomaly,Stable Channel|Exclusive Channel
+ZZZ-0006,Rina,Agent,S,Electric,Support,Stable Channel|Exclusive Channel
+ZZZ-0007,Ellen Joe,Agent,S,Ice,Attack,Exclusive Channel
+ZZZ-0008,Zhu Yuan,Agent,S,Ethereal,Attack,Exclusive Channel
+ZZZ-0009,Qingyi,Agent,S,Electric,Stun,Exclusive Channel
+ZZZ-0010,Jane Doe,Agent,S,Physical,Anomaly,Exclusive Channel
+ZZZ-0011,Burnice White,Agent,S,Fire,Anomaly,Exclusive Channel
+ZZZ-0012,Miyabi,Agent,S,Frost,Anomaly,Exclusive Channel
+ZZZ-0013,Harumasa,Agent,S,Electric,Attack,Exclusive Channel
+ZZZ-0014,Astra Yao,Agent,S,Ether,Support,Exclusive Channel
+ZZZ-0015,Evelyn Chevalier,Agent,S,Fire,Attack,Exclusive Channel
+ZZZ-0016,Vivian Banshee,Agent,S,Ether,Anomaly,Exclusive Channel
+ZZZ-0017,Hugo Vlad,Agent,S,Ice,Attack,Exclusive Channel
+ZZZ-0018,Yixuan,Agent,S,Auric Ink,Rupture,Exclusive Channel
+ZZZ-0019,Trigger,Agent,S,Electric,Stun,Exclusive Channel
+ZZZ-0020,Ju Fufu,Agent,S,Fire,Stun,Exclusive Channel
+ZZZ-0021,Alice Thymefield,Agent,S,Physical,Anomaly,Exclusive Channel
+ZZZ-0022,Yuzuha,Agent,S,Physical,Support,Exclusive Channel
+ZZZ-0023,Velina,Agent,S,Ether,Support,Exclusive Channel
+ZZZ-0024,Ye Shunguang,Agent,S,Physical,Attack,Exclusive Channel
+ZZZ-0025,Phoenix,Agent,S,Fire,Anomaly,Exclusive Channel
+ZZZ-0026,Severian,Agent,S,Wind,Attack,Exclusive Channel
+ZZZ-0027,Anby Demara,Agent,A,Electric,Stun,Stable Channel|Exclusive Channel
+ZZZ-0028,Billy Kid,Agent,A,Physical,Attack,Stable Channel|Exclusive Channel
+ZZZ-0029,Soukaku,Agent,A,Ice,Support,Stable Channel|Exclusive Channel
+ZZZ-0030,Nicole Demara,Agent,A,Ether,Support,Stable Channel|Exclusive Channel
+ZZZ-0031,Anton Ivanov,Agent,A,Electric,Attack,Stable Channel|Exclusive Channel
+ZZZ-0032,Lucy,Agent,A,Fire,Support,Stable Channel|Exclusive Channel
+ZZZ-0033,Corin Wickes,Agent,A,Physical,Attack,Stable Channel|Exclusive Channel
+ZZZ-0034,Ben Bigger,Agent,A,Fire,Defense,Stable Channel|Exclusive Channel
+ZZZ-0035,Piper Wheel,Agent,A,Physical,Anomaly,Stable Channel|Exclusive Channel
+ZZZ-0036,Pulchra Fellini,Agent,A,Physical,Stun,Stable Channel|Exclusive Channel
+ZZZ-0037,Seth Lowell,Agent,A,Electric,Defense,Stable Channel|Exclusive Channel
+ZZZ-0038,Pan Yinhu,Agent,A,Physical,Defense,Stable Channel|Exclusive Channel
+ZZZ-0039,Steel Cushion,W-Engine,S,,,Stable Channel|W-Engine Channel
+ZZZ-0040,Hellfire Gears,W-Engine,S,,,Stable Channel|W-Engine Channel
+ZZZ-0041,The Restrained,W-Engine,S,,,Stable Channel|W-Engine Channel
+ZZZ-0042,The Brimstone,W-Engine,S,,,Stable Channel|W-Engine Channel
+ZZZ-0043,Fusion Compiler,W-Engine,S,,,Stable Channel|W-Engine Channel
+ZZZ-0044,Weeping Cradle,W-Engine,S,,,Stable Channel|W-Engine Channel
+ZZZ-0045,Deep Sea Visitor,W-Engine,S,,,W-Engine Channel
+ZZZ-0046,Cannon Rotor,W-Engine,S,,,W-Engine Channel
+ZZZ-0047,Ice-Jade Teapot,W-Engine,S,,,W-Engine Channel
+ZZZ-0048,Sharpened Stinger,W-Engine,S,,,W-Engine Channel
+ZZZ-0049,Flamemaker Shaker,W-Engine,S,,,W-Engine Channel
+ZZZ-0050,Hailstorm Shrine,W-Engine,S,,,W-Engine Channel
+ZZZ-0051,Street Superstar,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0052,Starlight Engine,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0053,Original Transmorpher,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0054,Demara Battery Mark II,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0055,Starlight Engine Replica,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0056,Bashful Demon,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0057,Slice of Time,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0058,Steam Oven,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0059,Weeping Gemini,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0060,The Vault,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0061,Drill Rig - Red Axis,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0062,Kaboom the Cannon,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0063,Rainforest Gourmet,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0064,Precious Fossilized Core,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0065,Bunny Band,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0066,Housekeeper,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0067,Big Cylinder,W-Engine,A,,,Stable Channel|W-Engine Channel
+ZZZ-0068,Roaring Ride,W-Engine,A,,,Stable Channel|W-Engine Channel
