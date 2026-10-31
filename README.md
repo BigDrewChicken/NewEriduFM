@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  A streaming data pipeline that simulates the events a gacha "Signal Search" system would generate
+  A streaming data pipeline that simulates the events of Zenless Zone Zero's "Signal Search" system would generate
   (pulls and top-ups from 1,200 synthetic players), sends them through Apache Kafka into MongoDB,
   and shows them on a live retro radio-station dashboard.
 </p>
